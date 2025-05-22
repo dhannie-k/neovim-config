@@ -31,6 +31,12 @@ return {
       
 
     },
+    footer = {
+      [[              ]],
+     [[______/\  ___________________/\     n e o v i m  ]],
+     [[\/                     \  _______________]],
+     [[                        \/               ]]
+     },  --your footer
     shortcut = {
       { desc = '󰊳 Update', group = '@property', action = 'Lazy update', key = 'u' },
       {
@@ -56,9 +62,7 @@ return {
     },
   
        
-    --[[ footer = {
-      
-    },  --your footer ]]
+    
   }
 }
 
@@ -66,4 +70,3 @@ return {
     
   dependencies = { {'nvim-tree/nvim-web-devicons'}}
 }
-

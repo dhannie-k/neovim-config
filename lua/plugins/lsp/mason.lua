@@ -4,6 +4,7 @@ config = function()
     require("mason").setup {
       ensure_installed = {
         "rust-analyzer",
+        "tinymist",
       },
     }
   end

@@ -42,6 +42,8 @@ require("lazy").setup({
   {import = "plugins.which-key"},
   {import = "plugins.telescope.telescope"},
   {import = "plugins.telescope.telescope-fzf-native"},
+  {import = "plugins.avante"},
+  {import = "plugins.typst-preview"}
 
 })
 
