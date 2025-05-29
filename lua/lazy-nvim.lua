@@ -27,6 +27,8 @@ require("lazy").setup({
   {import = "plugins.lsp.mason-lspconfig"},
   {import = "plugins.lsp.nvim-lspconfig"},
   {import = "plugins.lsp.rustaceanvim"},
+  {import = "plugins.lsp.dart-vim"},
+  {import = "plugins.lsp.flutter-tools"},
   {import = "plugins.cmp.cmp-vsnip"},
   {import = "plugins.cmp.cmp-nvim-lsp"},
   {import = "plugins.cmp.cmp-buffer"},
