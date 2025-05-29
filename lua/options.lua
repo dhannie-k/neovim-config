@@ -15,6 +15,12 @@ vim.opt.expandtab = true
 vim.wo.number = true
 vim.wo.relativenumber = true
 
+vim.g.dart_style_guide = 2
+vim.g.dart_format_on_save = 1
+vim.g.dart_trailing_comma_indent = true
+
 --vim.wo.foldmethod = 'expr'
 --vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+
+
 
