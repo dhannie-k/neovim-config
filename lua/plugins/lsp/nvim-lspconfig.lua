@@ -1,16 +1,52 @@
 return{
-"neovim/nvim-lspconfig",
+    {
+        "neovim/nvim-lspconfig",
+         enabled = true,
+         dependencies = { 'saghen/blink.cmp' },
 
-enabled = false,
+        config = function()
+            require("lspconfig").lua_ls.setup{
+                settings = {
+                    Lua = {
+                        runtime = {
+                            -- Tell the language server which version of Lua you're using
+                            version = 'LuaJIT',
+                            -- Setup your lua path
+                            path = {
+                                '?.lua',
+                                '?/init.lua',
+                                vim.fn.expand('~/.luarocks/share/lua/5.1/?/init.lua'),
+                                vim.fn.expand('~/.luarocks/share/lua/5.1/?.lua'),
+                            }
+                        },
+                        diagnostics = {
+                            -- Get the language server to recognize the `vim` global
+                            globals = {'vim'},
+                        },
+                        workspace = {
+                            -- Make the server aware of Neovim runtime files
+                            library = {
+                                [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+                                [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+                            },
+                            -- Prevent the server from suggesting to modify your Neovim config
+                            checkThirdParty = false,
+                        },
+                        -- Do not send telemetry data containing a randomized but unique identifier
+                        telemetry = {
+                            enable = false,
+                        },
+                    }
+                }
+            }
+    local capabilities = require('blink.cmp').get_lsp_capabilities()
+    local lspconfig = require('lspconfig')
 
-
-config = function()
-
-    -- Define the local variables inside the config function
+    lspconfig['lua_ls'].setup({ capabilities = capabilities })
+             -- Define the local variables inside the config function
     local on_attach = require("plugins.lsp.nvim-lspconfig").on_attach
     --local capabilities = require("plugins.lsp.nvim-lspconfig").capabilities
     local capabilities = require("plugins.cmp.cmp-nvim-lsp").capabilities
-    local lspconfig = require("lspconfig")
     local util = require("lspconfig/util")
     
     require'lspconfig'.rust_analyzer.setup {
@@ -41,6 +77,8 @@ config = function()
         exportPdf = "onType",
         semanticTokens = "disable"
     }
-}
+}      
 end
+    }
+
 }

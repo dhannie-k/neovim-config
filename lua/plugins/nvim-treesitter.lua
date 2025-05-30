@@ -1,15 +1,16 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  --enable = false,
   config = function()
     require("nvim-treesitter.configs").setup({
-      ensure_installed = {"c","rust", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline"},
+      ensure_installed = {"c","rust", "lua", "vim", "vimdoc", "dart","query", "markdown", "markdown_inline"},
       compilers = {"clang"},          
       auto_install = true,
       highlight = {
         enable = true
       },
       -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-    ensure_installed = { "c","rust", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+    ensure_installed = { "c","rust", "lua", "vim", "vimdoc", "dart", "query", "markdown", "markdown_inline" },
   
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,

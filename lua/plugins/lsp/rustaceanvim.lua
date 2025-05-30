@@ -1,5 +1,6 @@
 local lsp_setup = require "plugins.lsp.lsp-on-attach"
 local lsp_on_attach = lsp_setup.on_attach
+enable = false
 
 return {
 	"mrcjkb/rustaceanvim",
