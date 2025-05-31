@@ -5,6 +5,12 @@ return{
          dependencies = { 'saghen/blink.cmp' },
 
         config = function()
+            local capabilities = require('blink.cmp').get_lsp_capabilities()
+            local lspconfig = require('lspconfig')
+            lspconfig['lua_ls'].setup({ capabilities = capabilities })
+            local on_attach = require("plugins.lsp.nvim-lspconfig").on_attach   
+            local util = require("lspconfig/util")
+            
             require("lspconfig").lua_ls.setup{
                 settings = {
                     Lua = {
@@ -39,15 +45,6 @@ return{
                     }
                 }
             }
-    local capabilities = require('blink.cmp').get_lsp_capabilities()
-    local lspconfig = require('lspconfig')
-
-    lspconfig['lua_ls'].setup({ capabilities = capabilities })
-             -- Define the local variables inside the config function
-    local on_attach = require("plugins.lsp.nvim-lspconfig").on_attach
-    --local capabilities = require("plugins.lsp.nvim-lspconfig").capabilities
-    local capabilities = require("plugins.cmp.cmp-nvim-lsp").capabilities
-    local util = require("lspconfig/util")
     
     require'lspconfig'.rust_analyzer.setup {
 

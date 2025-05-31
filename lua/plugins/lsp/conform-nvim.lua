@@ -1,4 +1,5 @@
 return {
+  enable = false,
   'stevearc/conform.nvim',
   opts = {},
   config = function()
