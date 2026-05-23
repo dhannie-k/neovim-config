@@ -11,7 +11,7 @@ vim.keymap.set("n", "<leader>.", function()
 	vim.cmd("vsplit | wincmd l")
 	require("oil").open()
 end)
-
+vim.keymap.set("n", "<leader>o", "<cmd>Telescope lsp_document_symbols<CR>")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set("n", "J", "mzJ`z")
